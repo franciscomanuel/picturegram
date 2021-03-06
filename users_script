@@ -1,0 +1,39 @@
+from datetime import date
+
+users = [
+	{
+		'email': 'apolonia@gmail.com',
+		'first_name': 'Apolonia',
+		'last_name': 'Fernandez',
+		'password': '1234',
+		'is_admin': True
+	},
+	{
+		'email': 'Gonzalo@gmail.com',
+		'first_name': 'Gonzalo',
+		'last_name': 'Perez',
+		'password': '5678'
+	},
+	{
+		'email': 'nekane@gmail.com',
+		'first_name': 'Nekane',
+		'last_name': 'Morales',
+		'password': '1357',
+		'birthdate': date(1990, 12, 19)
+	},
+	{
+		'email': 'claudia@gmail.com',
+		'first_name': 'Claudia',
+		'last_name': 'Marquez',
+		'password': '13246857',
+		'is_admin': True,
+		'birthdate': date(1990, 8, 4),
+		'bio': 'Soy la bio de claudia'
+	}
+]
+
+from posts.models import User
+
+for user in users:
+	obj = User.objects.create(**user)
+	print(obj.pk)

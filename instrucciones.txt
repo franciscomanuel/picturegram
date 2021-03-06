@@ -27,3 +27,57 @@ Exíste un módulo de python para debugear desde consola:
 
 Para crear una app dentro de nuestra aplicación usamos manager.py
 	python manage.py startapp posts
+
+
+Configurar una BD de tipo sqlite:
+	python manager.py migrate
+
+Después de aplicar cambios en modelos:
+	python manager.py makemigrations
+	python manager.py migrate
+
+Usar este gestor de BD online: https://sqliteonline.com/
+
+Para abrir un shell de python:
+	python manage.py shell
+
+Nos permitirá importar modelos de nuestra app.
+
+Ejemplo:
+
+	python manage.py shell
+
+	>> from posts.models import User
+	>> francisco = User.objects.create(email='fmsanchezgr@gmail.com',
+	password='12345678',
+	first_name='Francisco',
+	last_name='Sanchez')
+
+	o
+
+	francisco = User()
+	francisco.email='fmsanchezgr@gmail.com'
+	francisco.password='12345678'
+	francisco.first_name='Francisco'
+	francisco.last_name='Sanchez'
+	francisco.save()
+
+	modificar un valor:
+	>> francisco.email = 'fmsanchezgr2@gmail.com'
+	>> francisco.save()
+
+	Borrar un registro
+	>> francisco.delete()
+
+
+	Mirar el user_script file
+
+
+	Para recuperar un usuario:
+	>> user = User.objects.get(pk='1')
+
+	Recuperar usuarios aplicando filtros
+	>> users_filter = User.objects.filter(email__endswith='.com')
+
+	Recuperar todos los users:
+	>> users = User.objects.all()
