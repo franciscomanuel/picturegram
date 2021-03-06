@@ -24,3 +24,6 @@ Exíste un módulo de python para debugear desde consola:
 
 	Recargar la página y estará disponible.
 	En caso de terminar de debuggear y querer continuar con la ejecución escribir en la consola "c" + "enter"
+
+Para crear una app dentro de nuestra aplicación usamos manager.py
+	python manage.py startapp posts
