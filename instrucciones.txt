@@ -81,3 +81,46 @@ Ejemplo:
 
 	Recuperar todos los users:
 	>> users = User.objects.all()
+
+	Actualizar los usuarios filtrados y hacer que sean todos admin
+	>>  User.objects.filter(email__endswith='.com').update(is_admin=True)
+
+	Ver el resultado
+	>> users_filter = User.objects.filter(email__endswith='.com')
+	for u in users_filter:
+		print(u.email, ':', u.is_admin)
+
+
+Pero Django dispone de un sistema de administración de usuarios propio.
+	1) Accedemos a la shell: 
+		python manage.py shell
+	2) Creamos un usuario:
+		from django.contrib.auth.models import User
+		u = User.objects.create_user(username='francisco', password='admin123')
+
+	La password se cifra con un cifrado sha-256
+
+Creamos un superusuario:
+	python manage.py createsuperuser
+
+Ahora podemos acceder al area de administración con el superuser creado:
+	localhost:8000/admin
+
+
+Después de todo esto se ha borrado la BD y el modelo creado.
+
+
+Creamos un nuevo modelo User que tenga una oneToOne con el user de Django:
+	website
+	biography
+	phone_number
+	profile_picture
+	created
+	modified
+
+	python manage.py startapp users
+
+Después de crear el modelo, como profile_picture es de tipo ImageField, necesitamos installar Pillow para que funcione. Dentro de nuestro entorno, instalar: 
+	pip install pillow
+
+Después tenemos que registrar nuestro modelo en admin.py para que se vea reflejado en el área de administración.
