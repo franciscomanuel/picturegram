@@ -1,0 +1,26 @@
+Instalar virtualenv:
+	pip3 install virtualenv
+Crear el entorno virtual:
+	virtualenv env
+Iniciar el entorno virtual
+	env\Scripts\activate.bat
+Instalar Django:
+	pip3 install django -U
+Comprobar que todos los modulos esten instalados
+	pip3 freeze
+Para desactivar el entorno usamos
+	env\Scripts\deactivate.bat
+Crear el proyecto:
+	Una vez iniciado el entorno virtual, el proyecto se puede crear en el directorio que uno desee, fuera de este entorno virtual.
+	django-admin startproject picturegram .
+Para ver los comandos del proyecto ejecutar:
+	python manager.py
+Para lanzar el servidor:
+	python manager.py runserver
+
+
+Exíste un módulo de python para debugear desde consola:
+	import pdb; pdb.set_trace()
+
+	Recargar la página y estará disponible.
+	En caso de terminar de debuggear y querer continuar con la ejecución escribir en la consola "c" + "enter"
