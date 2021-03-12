@@ -14,6 +14,8 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+from django.conf import settings
+from django.conf.urls.static import static
 from django.urls import path
 
 from picturegram import views as local_views
@@ -26,4 +28,4 @@ urlpatterns = [
     path('time/', local_views.get_time),
     path('sorted/', local_views.sorted_integer),
     path('hi/<str:name>/<int:age>/', local_views.say_hi),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
