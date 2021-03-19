@@ -66,6 +66,7 @@ def signup_view(request):
 	return render(request, 'users/signup.html')
 
 
+@login_required
 def update_profile_view(request):
 	"""Update a user's profile view."""
 	

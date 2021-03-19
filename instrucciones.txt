@@ -124,3 +124,7 @@ Después de crear el modelo, como profile_picture es de tipo ImageField, necesit
 	pip install pillow
 
 Después tenemos que registrar nuestro modelo en admin.py para que se vea reflejado en el área de administración.
+
+
+
+Validación de formularios
