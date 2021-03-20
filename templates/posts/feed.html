@@ -9,8 +9,8 @@
     <div class="row">
       {% for post in posts %}
         <div class="col-sm-12 col-md-8 mt-5 offset-md-2 post-container">
-          <div class="media pt-3 pl-3 pb-1">
-            <img class="mr-3 rounded-circle" height="35" src="{{ post.profile.picture.url }}" alt="{{ post.user.get_full_name }}">
+          <div class="media pt-3 pl-3 pb-1 d-flex">
+            <img class="margin-posts rounded-circle" width="35" height="35" src="{{ post.profile.picture.url }}" alt="{{ post.user.get_full_name }}">
             <div class="media-body">
                 <p style="margin-top:5px;">{{ post.user.get_full_name }}</p>
             </div>
